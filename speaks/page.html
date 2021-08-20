@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Inspirado no Bubuzinho, um ídolo para nós e um segredo para vocês</p>
+    <label for="stringEntrada">Entre com sua string: </label>
+    <input type="text" id="stringEntrada" name="stringEntrada">
+    
+    <button onclick="bubuString()">Aperte aqui para ver a MáGiCa</button>
+    <br>
+    <a id="stringSaida"></a>
+
+    <script>
+
+        function bubuString(){
+            var texto = document.getElementById('stringEntrada').value
+            var strSplit = texto.split(' ')
+
+            for(let i = 0; i < texto.length; i++){
+                if(i % 2 == 1){
+                    strSplit[i] = texto.charAt(i).toUpperCase()
+                }else{
+                    strSplit[i] = texto.charAt(i).toLowerCase()
+                }
+            }
+
+            texto = strSplit.join('')
+
+            document.getElementById('stringSaida').innerHTML = texto
+        }
+
+
+
+    </script>
+
+</body>
+</html>
