@@ -14,29 +14,39 @@
         </div>
     </nav>
 
-    <div class="row mt-1 ml-1 mr-1">
-        <div class="col-sm-3 mt-3">
-            <div class="card">
-                <img src="bubu.png">
-                <label for="stringEntrada">Entre com sua string: </label>
-                <input type="text" id="stringEntrada" name="stringEntrada" placeholder="Digite sua frase">  <!-- onkeyup="bubuString() -->
-                <button onclick="bubuString()">MáGiCa</button>
-                <a id="stringSaida"></a>
-            </div>
-        </div>  
-    </div>
+    <div class="container-fluid pl-0 pr-0">
 
+        <div class="row mt-1 ml-1 mr-1">
 
-    <div class="row mt-1 ml-1 mr-1">
-        <div class="col-sm-3 mt-3">
-            <div class="card">
-                <img src="gordogamer.png">
-                <label for="stringEntradaKilos">Entre com sua string: </label>
-                <input type="text" id="stringEntradaKilos" name="stringEntradaKilos" placeholder="Digite sua frase">  <!-- onkeyup="bubuString() -->
-                <button onclick="bubuKilos()">Engorde!</button>
-                <a id="stringSaidaKilos"></a>
-            </div>
-        </div>  
+            <div class="col-sm-3 mt-2">
+                <div class="card" >
+                    <div class="card-body">
+                        <!-- <img src="bubu.png"  class="card-img-top"> -->
+                        <h4 class="card-title" for="stringEntrada">Digite sua frase: </h4>
+                        <p class="card-text">Suas frases ficarão "mIxEd cAsE".</p>
+                        <input type="text" id="stringEntrada" name="stringEntrada" placeholder="...">  <!-- onkeyup="bubuString() -->
+                        <button type="button" class="btn btn-primary btn-sm" onclick="bubuString()">MáGiCa</button>
+                        <p id="stringSaida"></p>
+                    </div>
+                </div>
+            </div>  
+            
+        
+            <div class="col-sm-3 mt-2">
+                <div class="card" >
+                    <div class="card-body">
+                        <!-- <img src="gordogamer.png" class="card-img-top"> -->
+                        <h4 class="card-title" for="stringEntradaKilos">Digite sua frase: </h4>
+                        <p class="card-text">Será adicionada uma frase bem Bubu.</p>
+                        <input class="col-8" type="text" id="stringEntradaKilos" name="stringEntradaKilos" placeholder="...">  <!-- onkeyup="bubuString() -->
+                        <button type="button col-4" class="btn btn-primary btn-sm" onclick="bubuKilos()">Engorde!</button>
+                        <p id="stringSaidaKilos"></p>
+                    </div>
+                </div>
+            </div>  
+
+        </div>
+
     </div>
     
 
@@ -64,7 +74,6 @@
             var fraseBubu = ', porque eu tenho 107 Kilo, né. Minha cadeira não me aguenta.'
             var novoTexto = texto2.concat(fraseBubu)
             document.getElementById('stringSaidaKilos').innerHTML = novoTexto
-            alert(novoTexto)
         }
 
 
