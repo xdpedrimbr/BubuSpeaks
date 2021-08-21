@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <p>Inspirado no Bubuzinho, um ídolo para nós e um segredo para vocês</p>
-    <label for="stringEntrada">Entre com sua string: </label>
-    <input type="text" id="stringEntrada" name="stringEntrada">  <!-- onkeyup="bubuString() -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand text-light" href="#">BuBu SpEaKs Oficial</a>
+        </div>
+    </nav>
+
+    <div class="row mt-1 ml-1 mr-1">
+        <div class="col-sm-3 mt-3">
+            <div class="card">
+                <img src="bubu.png">
+                <label for="stringEntrada">Entre com sua string: </label>
+                <input type="text" id="stringEntrada" name="stringEntrada" placeholder="Digite sua frase">  <!-- onkeyup="bubuString() -->
+                <button onclick="bubuString()">MáGiCa</button>
+                <a id="stringSaida"></a>
+            </div>
+        </div>  
+    </div>
+
+
+    <div class="row mt-1 ml-1 mr-1">
+        <div class="col-sm-3 mt-3">
+            <div class="card">
+                <img src="gordogamer.png">
+                <label for="stringEntradaKilos">Entre com sua string: </label>
+                <input type="text" id="stringEntradaKilos" name="stringEntradaKilos" placeholder="Digite sua frase">  <!-- onkeyup="bubuString() -->
+                <button onclick="bubuKilos()">Engorde!</button>
+                <a id="stringSaidaKilos"></a>
+            </div>
+        </div>  
+    </div>
     
-    <button onclick="bubuString()">Aperte aqui para ver a MáGiCa</button>
-    <br>
-    <a id="stringSaida"></a>
 
     <script>
 
@@ -32,6 +57,14 @@
             texto = strSplit.join('')
 
             document.getElementById('stringSaida').innerHTML = texto
+        }
+
+        function bubuKilos(){
+            var texto2 = document.getElementById('stringEntradaKilos').value
+            var fraseBubu = ', porque eu tenho 107 Kilo, né. Minha cadeira não me aguenta.'
+            var novoTexto = texto2.concat(fraseBubu)
+            document.getElementById('stringSaidaKilos').innerHTML = novoTexto
+            alert(novoTexto)
         }
 
 
