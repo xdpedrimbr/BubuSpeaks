@@ -31,19 +31,39 @@
                 </div>
             </div>  
             
-        
+        <!--  
             <div class="col-sm-3 mt-2">
                 <div class="card" >
                     <div class="card-body">
-                        <!-- <img src="gordogamer.png" class="card-img-top"> -->
                         <h4 class="card-title" for="stringEntradaKilos">Digite sua frase: </h4>
                         <p class="card-text">Será adicionada uma frase bem Bubu.</p>
-                        <input class="col-8" type="text" id="stringEntradaKilos" name="stringEntradaKilos" placeholder="...">  <!-- onkeyup="bubuString() -->
+                        <input class="col-8" type="text" id="stringEntradaKilos" name="stringEntradaKilos" placeholder="...">    
                         <button type="button col-4" class="btn btn-primary btn-sm" onclick="bubuKilos()">Engorde!</button>
                         <p id="stringSaidaKilos"></p>
                     </div>
                 </div>
             </div>  
+        -->
+
+        <div class="col-sm-3 mt-2">
+            <div class="card" >
+                <div class="card-body">
+                    <h4 class="card-title" for="stringEntradaKilos">Minecraft "OOF" sound</h4>
+                    <p class="card-text">Press the button</p>
+                    <button type="button col-4" class="btn btn-primary btn-sm" onclick="minecraftOOF()">OOF</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mt-2">
+            <div class="card" >
+                <div class="card-body">
+                    <h4 class="card-title" for="stringEntradaKilos">Minecraft "OOF" sound</h4>
+                    <p class="card-text">Press the button</p>
+                    <button type="button col-4" class="btn btn-primary btn-sm" onclick="robloxOOF()">OOF</button>
+                </div>
+            </div>
+        </div>
 
         </div>
 
@@ -76,7 +96,15 @@
             document.getElementById('stringSaidaKilos').innerHTML = novoTexto
         }
 
+        function minecraftOOF(){
+            const offmine = new Audio('classic_hurt.mp3')
+            offmine.play()
+        }
 
+        function robloxOOF(){
+            const oofroblox = new Audio('roblox-death-sound.mp3')
+            oofroblox.play()
+        }
 
     </script>
 
