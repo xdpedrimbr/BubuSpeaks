@@ -5,12 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Pronomes Neutros, Pronomes Neutres, Pronomes Indefinidos, Pronomes Indefinidxs, Indefinidos, Indefinidx, Neutros, Neutres, BuBu SpEaKs, Minecraft, Roblox, OOF Sounds, Barulhos OOF, Gameplay">
+    <meta name="keywords" content="Pronomes Neutros, Pronomes Neutres, Pronomes Indefinidos, Pronomes Indefinidxs, Indefinidos, Indefinidx, Neutros, Neutres, BuBu SpEaKs, Minecraft, Roblox, OOF Sounds, Barulhos OOF, Gameplay">
+    <title>BuBu Speaks</title>
+    <style>
+        textarea{
+            min-width: 100px;
+            min-height: 100px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand text-light" href="#">'BuBu SpEaKs Oficial'</a>
+          <a class="navbar-brand text-light" href="#">BuBu SpEaKs Real Oficial</a>
         </div>
     </nav>
 
@@ -23,14 +31,30 @@
                     <div class="card-body">
                         <!-- <img src="bubu.png"  class="card-img-top"> -->
                         <h4 class="card-title" for="stringEntrada">Digite sua frase: </h4>
-                        <p class="card-text">Suas frases ficarão "mIxEd cAsE".</p>
-                        <input type="text" id="stringEntrada" name="stringEntrada" placeholder="Digite a sua BuBu Frase">  <!-- onkeyup="bubuString() -->
+                        <p class="card-text">Suas frases ficarão "MiXeD CaSe".</p>
+                        <textarea type="text" id="stringEntrada" name="stringEntrada" class="col-12" placeholder="Digite a sua BuBu Frase"></textarea>  <!-- onkeyup="bubuString() -->
                         <p class="my-2" id="stringSaida"></p>
                         <button type="button" class="btn btn-primary btn-sm" onclick="bubuString()">MáGiCa</button>
                     </div>
                 </div>
             </div>  
             
+        <div class="col-sm-3 mt-2">
+            <div class="card" >
+                <div class="card-body">
+                    <h4 class="card-title" for="neutre"><a id="tipo1"></a></h4>
+
+                    <input type="radio" name="type1" id="neutral" value="neutral" autocomplete="off" onclick="neutre()"><label class="color_link capitalize" for="neutral">Neutrx</label><br>
+                    <input type="radio" name="type1" id="undefined" value="undefined" autocomplete="off" onclick="neutre()"><label class="color_link capitalize" for="undefined">Indefinidx</label>
+                    
+                    <p class="card-text"><a id="tipo2"></a></p>
+                    <textarea type="text" id="neutre" name="neutre" placeholder="DiGiTe a fRaSe" class="col-12"></textarea>
+                    <p class="my-2" id="stringSaidaNeutre"></p>
+                    <button type="button col-4" class="btn btn-primary btn-sm" onclick="neutre()">Neutrix</button>
+                </div>
+            </div>
+        </div>
+        
         <!--  
             <div class="col-sm-3 mt-2">
                 <div class="card" >
@@ -65,21 +89,6 @@
             </div>
         </div>
 
-        <div class="col-sm-3 mt-2">
-            <div class="card" >
-                <div class="card-body">
-                    <h4 class="card-title" for="neutre">Pronomes <a id="tipo1"></a></h4>
-
-                    <input type="radio" name="type1" id="neutral" value="neutral" autocomplete="off" onclick="neutre()"><label class="color_link capitalize" for="neutral">Neutro</label>
-                    <input type="radio" name="type1" id="undefined" value="undefined" autocomplete="off" onclick="neutre()"><label class="color_link capitalize" for="undefined">Indefinido</label>
-                    
-                    <p class="card-text"><a id="tipo2"></a></p>
-                    <textarea type="text" id="neutre" name="neutre" placeholder="dIgItE A FrAsE" class="col-12"></textarea>
-                    <p class="my-2" id="stringSaidaNeutre"></p>
-                    <button type="button col-4" class="btn btn-primary btn-sm" onclick="neutre()">Neutrix</button>
-                </div>
-            </div>
-        </div>
 
         <!-- <div class="col-lg-3 mt-2">
             <div class="card" >
@@ -99,7 +108,7 @@
     
 
     <script>
-        document.getElementById("tipo1").innerHTML = "Neutres"
+        document.getElementById("tipo1").innerHTML = "Gerader de Pronomes Neutres"
         document.getElementById("tipo2").innerHTML = "Sues freses ficarãe neutres"
 
         function bubuString(){
@@ -152,12 +161,12 @@
             if(choose == "neutral"){
                 changeCharUpper = "E";
                 changeCharLower = "e";
-                document.getElementById("tipo1").innerHTML = "Neutres"
+                document.getElementById("tipo1").innerHTML = "Gerader de Pronomes Neutres"
                 document.getElementById("tipo2").innerHTML = "Sues freses ficarãe neutres"
             }else if(choose == "undefined"){
                 changeCharUpper = "X";
                 changeCharLower = "x";
-                document.getElementById("tipo1").innerHTML = "Indefinidxs";
+                document.getElementById("tipo1").innerHTML = "Geradxr dx Pronomxs Indefinidxs";
                 document.getElementById("tipo2").innerHTML = "Suxs frxses ficarãx indefinidxs";
             }
 
