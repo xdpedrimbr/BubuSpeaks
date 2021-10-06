@@ -65,18 +65,28 @@
             </div>
         </div>
 
-        <div class="col-lg-3 mt-2">
+        <div class="col-sm-3 mt-2">
             <div class="card" >
                 <div class="card-body">
-                    <!-- <img src="bubu.png"  class="card-img-top"> -->
+                    <h4 class="card-title" for="neutre">Pronomes Neutres</h4>
+                    <p class="card-text">Press the button</p>
+                    <input type="text" id="neutre" name="neutre" placeholder="..."> 
+                    <button type="button col-4" class="btn btn-primary btn-sm" onclick="neutre()">Neutrix</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-lg-3 mt-2">
+            <div class="card" >
+                <div class="card-body">
                     <h4 class="card-title" for="stringEntrada">Digite sua frase: </h4>
                     <p class="card-text">Suas frases ficarão "mIxEd cAsE".</p>
-                    <input type="text" id="stringEntrada" name="stringEntrada" placeholder="...">  <!-- onkeyup="bubuString() -->
+                    <input type="text" id="stringEntrada" name="stringEntrada" placeholder="...">  
                     <button type="button" class="btn btn-primary btn-sm" onclick="bubuString()">MáGiCa</button>
                     <p id="stringSaida"></p>
                 </div>
             </div>
-        </div> 
+        </div>  -->
 
         </div>
 
@@ -117,6 +127,31 @@
         function robloxOOF(){
             const oofroblox = new Audio('roblox-death-sound.mp3')
             oofroblox.play()
+        }
+
+        function neutre(){
+            var fraseNeutre = document.getElementById('neutre').value
+            var strSplit2 = fraseNeutre.split(' ')
+            
+            for(let i = 0; i < strSplit2.length; i++){
+                var indexLetraA = strSplit2[i].lastIndexOf("a")
+                var indexLetraB = strSplit2[i].lastIndexOf("o")
+                
+                var maior
+                
+                if(indexLetraA > indexLetraB){
+                    maior = indexLetraA
+                }else{
+                    maior = indexLetraB
+                }
+                
+                console.log(maior)
+
+                strSplit2[i][maior] = "e" 
+                
+            }
+            
+            
         }
 
     </script>
