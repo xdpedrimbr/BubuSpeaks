@@ -24,9 +24,9 @@
                         <!-- <img src="bubu.png"  class="card-img-top"> -->
                         <h4 class="card-title" for="stringEntrada">Digite sua frase: </h4>
                         <p class="card-text">Suas frases ficarão "mIxEd cAsE".</p>
-                        <input type="text" id="stringEntrada" name="stringEntrada" placeholder="...">  <!-- onkeyup="bubuString() -->
+                        <input type="text" id="stringEntrada" name="stringEntrada" placeholder="Digite a sua BuBu Frase">  <!-- onkeyup="bubuString() -->
+                        <p class="my-2" id="stringSaida"></p>
                         <button type="button" class="btn btn-primary btn-sm" onclick="bubuString()">MáGiCa</button>
-                        <p id="stringSaida"></p>
                     </div>
                 </div>
             </div>  
@@ -68,9 +68,14 @@
         <div class="col-sm-3 mt-2">
             <div class="card" >
                 <div class="card-body">
-                    <h4 class="card-title" for="neutre">Pronomes Neutres</h4>
-                    <p class="card-text">Press the button</p>
-                    <input type="text" id="neutre" name="neutre" placeholder="..."> 
+                    <h4 class="card-title" for="neutre">Pronomes <a id="tipo1"></a></h4>
+
+                    <input type="radio" name="type1" id="neutral" value="neutral" autocomplete="off" onclick="neutre()"><label class="color_link capitalize" for="neutral">Neutro</label>
+                    <input type="radio" name="type1" id="undefined" value="undefined" autocomplete="off" onclick="neutre()"><label class="color_link capitalize" for="undefined">Indefinido</label>
+                    
+                    <p class="card-text"><a id="tipo2"></a></p>
+                    <textarea type="text" id="neutre" name="neutre" placeholder="dIgItE A FrAsE" class="col-12"></textarea>
+                    <p class="my-2" id="stringSaidaNeutre"></p>
                     <button type="button col-4" class="btn btn-primary btn-sm" onclick="neutre()">Neutrix</button>
                 </div>
             </div>
@@ -94,13 +99,15 @@
     
 
     <script>
+        document.getElementById("tipo1").innerHTML = "Neutres"
+        document.getElementById("tipo2").innerHTML = "Sues freses ficarãe neutres"
 
         function bubuString(){
             var texto = document.getElementById('stringEntrada').value
             var strSplit = texto.split(' ')
 
             for(let i = 0; i < texto.length; i++){
-                if(i % 2 == 1){
+                if(i % 2 == 0){
                     strSplit[i] = texto.charAt(i).toUpperCase()
                 }else{
                     strSplit[i] = texto.charAt(i).toLowerCase()
@@ -114,7 +121,7 @@
 
         function bubuKilos(){
             var texto2 = document.getElementById('stringEntradaKilos').value
-            var fraseBubu = ', porque eu tenho 107 Kilos, né. Minha cadeira não me aguenta.'
+            var fraseBubu = ', porque eu tenho 107 Kilos, né?! Minha cadeira não me aguenta.'
             var novoTexto = texto2.concat(fraseBubu)
             document.getElementById('stringSaidaKilos').innerHTML = novoTexto
         }
@@ -129,31 +136,68 @@
             oofroblox.play()
         }
 
-        function neutre(){
-            var fraseNeutre = document.getElementById('neutre').value
-            var strSplit2 = fraseNeutre.split(' ')
-            
-            for(let i = 0; i < strSplit2.length; i++){
-                var indexLetraA = strSplit2[i].lastIndexOf("a")
-                var indexLetraB = strSplit2[i].lastIndexOf("o")
-                
-                var maior
-                
-                if(indexLetraA > indexLetraB){
-                    maior = indexLetraA
-                }else{
-                    maior = indexLetraB
+        function neutre(){          
+            let options = document.getElementsByName("type1");
+            let choose;
+            for(var i = 0; i < options.length; i++){
+                if(options[i].checked){
+                    choose = options[i].value;
+                    break;
                 }
-                
-                console.log(maior)
-
-                strSplit2[i][maior] = "e" 
-                
             }
             
+            changeCharUpper = "E";
+            changeCharLower = "e";
             
+            if(choose == "neutral"){
+                changeCharUpper = "E";
+                changeCharLower = "e";
+                document.getElementById("tipo1").innerHTML = "Neutres"
+                document.getElementById("tipo2").innerHTML = "Sues freses ficarãe neutres"
+            }else if(choose == "undefined"){
+                changeCharUpper = "X";
+                changeCharLower = "x";
+                document.getElementById("tipo1").innerHTML = "Indefinidxs";
+                document.getElementById("tipo2").innerHTML = "Suxs frxses ficarãx indefinidxs";
+            }
+
+            var fraseNeutre = document.getElementById('neutre').value
+            
+            document.getElementById("stringSaidaNeutre").innerHTML = convertString(fraseNeutre, changeCharLower, changeCharUpper)
         }
 
+        function convertString(str, changeCharLower, changeCharUpper){
+            var strSplit2 = str.split(' ')
+
+            let stringObj = [];
+            
+            for(let i = 0; i < strSplit2.length; i++){
+                let stringTemp = "";
+                let flag = false;
+                for(let j = strSplit2[i].length - 1; j >= 0; j--){
+                    if(flag === false){
+                        if(strSplit2[i][j] == 'A' || strSplit2[i][j] == 'O'){
+                            stringTemp += changeCharUpper;
+                            flag = true;
+                            continue;
+                        }else if(strSplit2[i][j] == 'a' || strSplit2[i][j] == 'o'){
+                            stringTemp += changeCharLower;
+                            flag = true;
+                            continue;
+                        }
+                        stringTemp += strSplit2[i][j];
+                    }else{
+                        stringTemp += strSplit2[i][j];
+                    }
+                }
+                let stringReversed = ""
+                for(let i = stringTemp.length - 1; i >= 0; i--){
+                    stringReversed += stringTemp[i];
+                }    
+                stringObj.push(stringReversed)
+            }
+            return stringObj.join(" ")
+        }
     </script>
 
 </body>
